@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Product Maintenance</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    </head>
+    <body>
+        <h1>Products</h1>
+        <table cellpadding="5" border="1">
+            <tr align="bottom">
+                <td align="left"><b>Code</b></td>
+                <td align="left"><b>Description</b></td>
+                <td align="left"><b>Price</b></td>
+                
+            </tr>
+            <div th:each="p : ${products}">
+                <tr valign="top">
+                    <td><label th:text="${p.code}" th:value="${p.code}"></label></td>
+                    <td><label th:text="${p.description}" th:value="${p.description}"></label></td>
+                    <td><label th:text="${p.price}" th:value="${p.price}">$</label></td>
+                    <td><a th:href="@{'/editProduct?productCode='+${p.code}}">Edit</a></td>
+                    <td><a th:href="@{'/deleteProduct?productCode='+${p.code}}">Delete</a></td>
+                </tr>
+            </div >
+        </table>
+        <br>
+        <form th:action="@{/addProduct}" method="get" >
+            <input type='submit' value='Add Product'>
+        </form>
+    </body>
+</html>

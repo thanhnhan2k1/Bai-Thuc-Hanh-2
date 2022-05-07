@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Product Maintenance</title>
+</head>
+
+<body>
+	<h1>Product</h1>
+	<table cellspacing="5" border=0>
+		<tr>
+			<form th:action="@{/addProduct}" method="post" th:object="${product}">
+				<div th:if="${#fields.hasErrors()}">
+					<span class="validationError">
+						Please correct the problems below and resubmit.
+					</span>
+
+				</div>
+				<td align="right">Product Code:</td>
+				<td><input type="text" th:field="${product.code}" /></td>
+		</tr>
+		<tr>
+			<td align="right">Product Description:</td>
+			<td><input type="text" th:field="${product.description}" /></td>
+		</tr>
+		<tr>
+			<td align="right">Product Price:</td>
+			<td><input type="text" th:field="${product.price}" /></td>
+		</tr>
+		<tr>
+			<td align="right">
+				<input type="hidden" name="cation" value="update">
+				<input type="submit" value="Update Product">
+				</form>
+			</td>
+			<td>
+				<a th:href="@{/displayProduct}"><button>View product</button></a>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

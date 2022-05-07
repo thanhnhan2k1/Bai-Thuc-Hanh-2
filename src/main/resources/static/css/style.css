@@ -1,0 +1,18 @@
+body { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 85%;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+h1 {     
+    font-size: 140%;
+    color: teal;
+    margin-bottom: .5em;    
+}
+br {
+    clear: both;
+}
+
+#quantity {
+    width: 2em;
+}
